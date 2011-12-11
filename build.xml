@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JSnipper" default="default" basedir=".">
+	<description>Builds JSnipper</description>
+
+	<target name="default" depends="jar" description="Build and create JAR fpr JSnipper"/>
+	
+    <target name="init">
+        <property name="build.dir" value="bin"/>
+        <property name="src.dir" value="src"/>
+    </target>
+    
+    <target name="build" depends="init,clean" description="Builds project">
+        <mkdir dir="${build.dir}"/>
+
+        <javac srcdir="${src.dir}"
+               destdir="${build.dir}"
+               debug="false"
+               deprecation="true"
+               optimize="true"
+               includeAntRuntime="false">
+        </javac>
+
+        <copy todir="${build.dir}">
+            <fileset dir="${src.dir}">
+                <include name="**/*.properties"/>
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+	
+	<target name="jar" depends="build">
+	    <jar destfile="jsnipper.jar" basedir="${build.dir}">
+	        <manifest>
+	            <attribute name="Main-Class" value="de.altimos.jsnipper.JSnipper"/>
+	        </manifest>
+	    </jar>
+	</target>
+    
+    <target name="clean" depends="init" description="Removes build files">
+        <delete dir="${build.dir}"/>
+    </target>
+</project>

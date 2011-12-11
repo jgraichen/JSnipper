@@ -1,0 +1,22 @@
+JSnipper
+
+JSnipper is a small screen snipping tool. You can capture a part of your screen and annotate it before copying it to clipboard or save to disk.
+
+
+Install
+
+Download binary and execute it: $ java -jar jsnipper.jar
+
+Build it from source:
+
+Clone repository and run ant:
+$ git clone https://github.com/jgraichen/jsnipper.git
+$ cd jsnipper
+$ ant
+
+It should work an all operating systems but was developed and slightly tested using Linux only.
+
+
+Copyright
+
+Copyright © 2011 Jan Graichen
